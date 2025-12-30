@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct grindinApp: App {
+    @StateObject var taskViewModel = TaskViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DayView()
+                .environmentObject(TaskViewModel())
         }
     }
 }

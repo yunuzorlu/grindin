@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct AddTaskButton: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    @Binding var isSheetVisible: Bool
 
-#Preview {
-    AddTaskButton()
+    var body: some View {
+        Button {
+            isSheetVisible.toggle()
+        } label: {
+            RoundedRectangle(cornerRadius: 100)
+                .fill(.accent)
+                .frame(height: 48)
+                .overlay {
+                    HStack {
+                        Image(systemName: "plus")
+                            .font(.system(size: 14, weight: .semibold))
+
+                        Text("Add Task")
+                            .font(.custom("HostGrotesk-SemiBold", size: 20))
+                    }
+                    .foregroundStyle(.black)
+                }
+        }
+        .buttonStyle(.plain)
+    }
 }
