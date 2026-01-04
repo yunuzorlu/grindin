@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddTaskSheet: View {
-    @EnvironmentObject var taskViewModel: TaskViewModel
+    @State private var taskViewModel = TaskViewModel()
     let transition: Namespace.ID
 
     var body: some View {
@@ -49,5 +49,5 @@ struct AddTaskSheet: View {
 
 #Preview {
     DayView()
-        .environmentObject(TaskViewModel(useMock: true))
+        .environment(TaskViewModel(useMock: true))
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TaskButton: View {
-    @EnvironmentObject var taskViewModel: TaskViewModel
+    @State private var taskViewModel = TaskViewModel()
     let task: Task
     
     var body: some View {
@@ -27,5 +27,5 @@ struct TaskButton: View {
 
 #Preview {
     DayView()
-        .environmentObject(TaskViewModel(useMock: true))
+        .environment(TaskViewModel(useMock: true))
 }

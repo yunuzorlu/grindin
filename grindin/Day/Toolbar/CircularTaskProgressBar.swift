@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CircularTaskProgressBar: ToolbarContent {
-    @EnvironmentObject var taskViewModel: TaskViewModel
+    @State private var taskViewModel = TaskViewModel()
     
     var body: some ToolbarContent {
         ToolbarItem(placement: .bottomBar) {
@@ -67,5 +67,5 @@ struct CircularTaskProgressBar: ToolbarContent {
 
 #Preview {
     DayView()
-        .environmentObject(TaskViewModel(useMock: true))
+        .environment(TaskViewModel(useMock: true))
 }

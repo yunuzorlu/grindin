@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddTaskButton: ToolbarContent {
-    @EnvironmentObject var taskViewModel: TaskViewModel
+    @State private var taskViewModel = TaskViewModel()
     let transition: Namespace.ID
 
     var body: some ToolbarContent {
@@ -36,5 +36,5 @@ struct AddTaskButton: ToolbarContent {
 
 #Preview {
     DayView()
-        .environmentObject(TaskViewModel(useMock: true))
+        .environment(TaskViewModel(useMock: true))
 }
