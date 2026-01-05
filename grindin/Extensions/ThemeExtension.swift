@@ -8,6 +8,11 @@ extension Color {
     }
 }
 
+extension Color {
+    static var subtle: Color {
+        .primary.opacity(0.25)
+    }
+}
 
 extension Collection {
     var isNotEmpty: Bool {

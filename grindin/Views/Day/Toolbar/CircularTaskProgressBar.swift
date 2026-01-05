@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CircularTaskProgressBar: ToolbarContent {
-    @State private var taskViewModel = TaskViewModel()
-    
+    @Bindable var taskViewModel: TaskViewModel
+
     var body: some ToolbarContent {
         ToolbarItem(placement: .bottomBar) {
             ZStack {
@@ -24,9 +24,7 @@ struct CircularTaskProgressBar: ToolbarContent {
                         )
                         .transition(.scale.combined(with: .opacity))
                 } else {
-                    Text(
-                        "\(taskViewModel.completedCount)/\(taskViewModel.totalCount)"
-                    )
+                    Text("\(taskViewModel.completedCount)/\(taskViewModel.totalCount)")
                     .font(.custom("Satoshi Medium", size: 13))
                     .foregroundStyle(.secondary)
                 }
@@ -66,6 +64,5 @@ struct CircularTaskProgressBar: ToolbarContent {
 }
 
 #Preview {
-    DayView()
-        .environment(TaskViewModel(useMock: true))
+    DayView(taskViewModel: TaskViewModel(useMock: true))
 }

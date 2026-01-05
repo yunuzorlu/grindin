@@ -4,6 +4,9 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>ZalandoSansExpanded-Medium.ttf</string>
+		<string>ZalandoSansExpanded-SemiBold.ttf</string>
+		<string>ZalandoSansExpanded-Bold.ttf</string>
 		<string>HostGrotesk-Regular.ttf</string>
 		<string>HostGrotesk-Medium.ttf</string>
 		<string>HostGrotesk-SemiBold.ttf</string>

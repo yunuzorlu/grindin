@@ -8,28 +8,25 @@
 import SwiftUI
 
 struct TaskBackground: View {
-    let task: Task
-    
+    let task: TaskModel
+
     var body: some View {
         GeometryReader { proxy in
-            ZStack {
-                Rectangle()
-                    .fill(.accent)
-                    .frame(
-                        width: task.isCompleted
+            Rectangle()
+                .fill(.accent)
+                .frame(
+                    width: task.isCompleted
                         ? proxy.size.width : 0
-                    )
-                    .animation(
-                        .easeInOut(duration: 0.25),
-                        value: task.isCompleted
-                    )
-            }
-            .allowsHitTesting(false)
+                )
+                .animation(
+                    .easeInOut(duration: 0.25),
+                    value: task.isCompleted
+                )
+                .allowsHitTesting(false)
         }
     }
 }
 
 #Preview {
-    DayView()
-        .environment(TaskViewModel(useMock: true))
+    DayView(taskViewModel: TaskViewModel(useMock: true))
 }

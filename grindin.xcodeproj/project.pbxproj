@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		02966CDB2F044F2500962FF4 /* Exceptions for "grindin" folder in "grindin" target */ = {
+		02AB17D92F0C1DBF0064F536 /* Exceptions for "grindin" folder in "grindin" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -24,7 +24,7 @@
 		025B27482F03F91D00B35E81 /* grindin */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				02966CDB2F044F2500962FF4 /* Exceptions for "grindin" folder in "grindin" target */,
+				02AB17D92F0C1DBF0064F536 /* Exceptions for "grindin" folder in "grindin" target */,
 			);
 			path = grindin;
 			sourceTree = "<group>";

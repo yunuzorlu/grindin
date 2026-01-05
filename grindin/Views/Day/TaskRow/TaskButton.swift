@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TaskButton: View {
-    @State private var taskViewModel = TaskViewModel()
-    let task: Task
+    @Bindable var taskViewModel: TaskViewModel
+    let task: TaskModel
     
     var body: some View {
         Button { taskViewModel.toggleCompletion(for: task) } label: {
@@ -26,6 +26,5 @@ struct TaskButton: View {
 }
 
 #Preview {
-    DayView()
-        .environment(TaskViewModel(useMock: true))
+    DayView(taskViewModel: TaskViewModel(useMock: true))
 }

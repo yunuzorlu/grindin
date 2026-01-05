@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DayView: View {
-    @State private var taskViewModel = TaskViewModel()
+    @Bindable var taskViewModel: TaskViewModel
     @Namespace private var transition
     
     var body: some View {
@@ -17,7 +17,7 @@ struct DayView: View {
                 ForEach(taskViewModel.tasks) { task in
                     Button { taskViewModel.didTaskTap(task) } label: {
                         HStack(spacing: 12) {
-                            TaskButton(task: task)
+                            TaskButton(taskViewModel: taskViewModel, task: task)
                             TaskTitle(task: task, transition: transition)
                         }
                     }
@@ -26,22 +26,21 @@ struct DayView: View {
             }
             .listStyle(.plain)
             .sheet(isPresented: $taskViewModel.addSheetPresented) {
-                AddTaskSheet(transition: transition)
+                AddTaskSheet(taskViewModel: taskViewModel, transition: transition)
             }
             .sheet(item: $taskViewModel.selectedTask) { task in
-                EditTaskSheet(task: task, transition: transition)
+                EditTaskSheet(taskViewModel: taskViewModel, task: task, transition: transition)
             }
             .toolbar {
                 DayTitle()
-                AddTaskButton(transition: transition)
+                AddTaskButton(taskViewModel: taskViewModel, transition: transition)
                 ToolbarSpacer(placement: .bottomBar)
-                CircularTaskProgressBar()
+                CircularTaskProgressBar(taskViewModel: taskViewModel)
             }
         }
     }
 }
 
 #Preview {
-    DayView()
-        .environment(TaskViewModel(useMock: true))
+    DayView(taskViewModel: TaskViewModel(useMock: true))
 }

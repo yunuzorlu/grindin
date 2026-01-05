@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct grindinApp: App {
-    @StateObject var taskViewModel = TaskViewModel()
-
     var body: some Scene {
+        @State var loopViewModel = LoopViewModel()
+        
         WindowGroup {
             LoopView()
-                .environmentObject(TaskViewModel())
+                .environment(loopViewModel)
         }
     }
 }

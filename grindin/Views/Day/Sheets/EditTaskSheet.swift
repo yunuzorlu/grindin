@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct EditTaskSheet: View {
-    @State private var taskViewModel = TaskViewModel()
+    @Bindable var taskViewModel: TaskViewModel
     @State private var editedTitle: String = ""
-    let task: Task
+    let task: TaskModel
     let transition: Namespace.ID
 
     var body: some View {
         VStack(spacing: 8) {
             Text("Edit Task")
-                .font(.custom("HostGrotesk-Bold", size: 36))
+                .font(.custom("HostGrotesk-SemiBold", size: 36))
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             VStack(spacing: 16) {
@@ -27,17 +27,17 @@ struct EditTaskSheet: View {
                     .onAppear {
                         editedTitle = task.title
                     }
-                    .onDisappear {
-                        taskViewModel.updateTitle(for: task, newTitle: editedTitle)
-                    }
                 
                 HStack(spacing: 16) {
-                    Button { taskViewModel.selectedTask = nil } label: {
+                    Button {
+                        taskViewModel.updateTitle(for: task, newTitle: editedTitle)
+                        taskViewModel.selectedTask = nil
+                    } label: {
                         Capsule()
                             .fill(.accent)
                             .frame(height: 48)
                             .overlay {
-                                Text("Edit")
+                                Text("Done")
                                     .font(.custom("HostGrotesk-SemiBold", size: 20))
                                     .foregroundStyle(.black)
                             }
@@ -72,6 +72,5 @@ struct EditTaskSheet: View {
 }
 
 #Preview {
-    DayView()
-        .environment(TaskViewModel(useMock: true))
+    DayView(taskViewModel: TaskViewModel(useMock: true))
 }

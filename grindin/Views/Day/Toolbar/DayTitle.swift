@@ -11,13 +11,12 @@ struct DayTitle: ToolbarContent {
     var body: some ToolbarContent {
         ToolbarItem(placement: .topBarTrailing) {
             Text(Date.now, format: .dateTime.weekday(.wide))
-                .font(.custom("HostGrotesk-Bold", size: 36))
+                .font(.custom("ZalandoSansExpanded-SemiBold", size: 32))
         }
         .sharedBackgroundVisibility(.hidden)
     }
 }
 
 #Preview {
-    DayView()
-        .environment(TaskViewModel(useMock: true))
+    DayView(taskViewModel: TaskViewModel(useMock: true))
 }

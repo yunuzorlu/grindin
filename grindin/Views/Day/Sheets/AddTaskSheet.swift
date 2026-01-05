@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct AddTaskSheet: View {
-    @State private var taskViewModel = TaskViewModel()
+    @Bindable var taskViewModel: TaskViewModel
     let transition: Namespace.ID
 
-    var body: some View {
+    var body: some View {        
         VStack(spacing: 8) {
             Text("Add Task")
-                .font(.custom("HostGrotesk-Bold", size: 36))
+                .font(.custom("HostGrotesk-SemiBold", size: 36))
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             VStack(spacing: 16) {
@@ -48,6 +48,5 @@ struct AddTaskSheet: View {
 }
 
 #Preview {
-    DayView()
-        .environment(TaskViewModel(useMock: true))
+    DayView(taskViewModel: TaskViewModel(useMock: true))
 }

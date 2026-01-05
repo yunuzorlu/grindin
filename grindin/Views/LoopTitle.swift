@@ -11,7 +11,7 @@ struct LoopTitle: ToolbarContent {
     var body: some ToolbarContent {
         ToolbarItem(placement: .topBarTrailing) {
             Text("Loop")
-                .font(.custom("HostGrotesk-Bold", size: 36))
+                .font(.custom("ZalandoSansExpanded-SemiBold", size: 32))
         }
         .sharedBackgroundVisibility(.hidden)
     }

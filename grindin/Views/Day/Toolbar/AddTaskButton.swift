@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct AddTaskButton: ToolbarContent {
-    @State private var taskViewModel = TaskViewModel()
+    @Bindable var taskViewModel: TaskViewModel
     let transition: Namespace.ID
 
-    var body: some ToolbarContent {
+    var body: some ToolbarContent {        
         ToolbarItem(placement: .bottomBar) {
             Button { taskViewModel.didAddTap() } label: {
                 Capsule()
@@ -35,6 +35,5 @@ struct AddTaskButton: ToolbarContent {
 }
 
 #Preview {
-    DayView()
-        .environment(TaskViewModel(useMock: true))
+    DayView(taskViewModel: TaskViewModel(useMock: true))
 }

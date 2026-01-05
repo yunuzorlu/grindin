@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct TaskTitle: View {
-    @State private var taskViewModel = TaskViewModel()
-    let task: Task
+    let task: TaskModel
     let transition: Namespace.ID
-
-    @State private var progress: CGFloat = 0
 
     var body: some View {
         Text(task.title)
@@ -25,6 +22,5 @@ struct TaskTitle: View {
 }
 
 #Preview {
-    DayView()
-        .environment(TaskViewModel(useMock: true))
+    DayView(taskViewModel: TaskViewModel(useMock: true))
 }
